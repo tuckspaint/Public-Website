@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Exercise 6: View User Posts</title>
+	</head>
+<body>
+	<form action="ViewUserPosts.php" method="post">
+		<label for="authors">Choose an author by ID:</label>
+		<select name="authors" id="authors">
+			<?php
+			$mysqli = new mysqli("mysql.eecs.ku.edu", "t692m515", "Jai3ioku", "t692m515");
+
+			if ($mysqli->connect_errno) {
+				echo "Connect failed: " . $mysqli->connect_error . "<br>";
+				exit();
+			}
+			$query = "SELECT user_id FROM Users;";
+			if ($result = $mysqli->query($query)) {
+				while ($row = $result->fetch_assoc()) {
+					echo "<option value=\"" . $row["user_id"] . "\">" . $row["user_id"] . "</option>";
+				}
+				$result->free();
+			}
+
+			$mysqli->close();
+			?>
+		</select>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
