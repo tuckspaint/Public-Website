@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Exercise 7: Delete Posts</title>
+	</head>
+<body>
+	<form action="DeletePost.php" method="post">
+		<table>
+			<tr><th>Author ID</th><th>Post Content</th><th>Delete?</th></tr>
+			<?php
+			$mysqli = new mysqli("mysql.eecs.ku.edu", "t692m515", "Jai3ioku", "t692m515");
+
+			if ($mysqli->connect_errno) {
+				echo "Connect failed: " . $mysqli->connect_error . "<br>";
+				exit();
+			}
+			$query = "SELECT * FROM Posts;";
+			if ($result = $mysqli->query($query)) {
+				while ($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["author_id"] . "</td>";
+					echo "<td>" . $row["content"] . "</td>";
+					echo "<td><input type='checkbox' id='" . $row["post_id"] . "' name='" . $row["post_id"] . "' value='" . $row["post_id"] . "'></td></tr>";
+				}
+				$result->free();
+			}
+
+			$mysqli->close();
+			?>
+
+		</table>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
