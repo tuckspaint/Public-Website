@@ -1,0 +1,36 @@
+<html>
+ <head>
+  <script type = "text/javascript" src = "FormChecker.js"></script>
+  <link href="stylestore.css" rel="stylesheet" type="text/css"/>
+  <title>Exercise 3: Web Store</title>
+ </head>
+<body>
+ <form name="form" action="customerBackend.php" method="post" onSubmit="return formCheck()" required>
+  Username(email): <input type="email" name="username" required><br>
+  Password: <input type="password" name="password" required><br>
+
+  <img class="item" src="crabspider.jpg"></img><br>
+  Macrocheira kaempferi<br>
+  $159.99<br>
+  Amount: <input type="number" name="crab" value="0" required><br>
+  <img class="item" src="housecentipede.jpg"></img><br>
+  Scutigera coleoptrata<br>
+  $12.99<br>
+  Amount: <input type="number" name="centipede" value="0" required><br>
+  <img class="item" src="goblinshark.jpg"></img><br>
+  Mitsukurina owstoni<br>
+  $69.99<br>
+  Amount: <input type="number" name="shark" value="0" required><br>
+  <br>
+  <b>Shipping</b><br>
+  <input type="radio" id="free" name="shipping" value="7 Day" required>
+  <label for="free">Free 7 Day</label><br>
+  <input type="radio" id="overnight" name="shipping" value="Overnight" required>
+  <label for="overnight">$50.00 Overnight</label><br>
+  <input type="radio" id="express" name="shipping" value="3 Day" required>
+  <label for="express">$5.00 3 Day</label><br>
+  <input type="reset"><br>
+  <input type="submit" value="Submit"><br>
+ </form>
+</body>
+</html>
